@@ -1,0 +1,9 @@
+---
+    - hosts: host-servers
+      remote_user: "{{ ansible_user }}"
+      become: no
+      roles:
+        - { role: common,            tags: [ 'common'  ] }
+        - { role: kvm,               tags: [ 'kvm'  ] }
+    
+    

@@ -1,0 +1,54 @@
+---
+  - name: dpkg --configure -a
+    shell: dpkg --configure -a
+    tags:
+      - packages
+      - common
+      - dpkg-reconf
+  
+  - name: install system utils, packages and stuff...
+    package:
+      name:
+        - apt-transport-https
+        - curl
+        - figlet
+        - genisoimage
+        - git
+        - git-core
+        - goaccess
+        - htop
+        - libfontconfig
+        - libjson-xs-perl
+        - multitail
+        - ntp
+        - openssl
+        - python-pip
+        - rsync
+        - rsyslog
+        - software-properties-common
+        - sysstat
+        - vim
+        - vim-common
+        - wget
+        - zip
+      state: latest
+      update_cache: yes
+      cache_valid_time: 5400
+      allow_unauthenticated: yes
+    tags:
+      - packages
+      - common
+  
+  # @link http://bencane.com/2012/07/08/sar-sysstat-linux-performance-statistics-with-ease/
+  - name: enable /etc/default/sysstat
+    lineinfile:
+      backup: yes
+      create: yes
+      dest: /etc/default/sysstat
+      regexp: '^ENABLED='
+      line: 'ENABLED="true"'
+      state: present
+    tags:
+      - common-config
+      - packages
+      - common

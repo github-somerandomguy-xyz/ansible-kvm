@@ -1,0 +1,17 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+# security stuff: 
+#commenting out for boiler plate push reasons, should uncomment when using it for a real project.
+# _inventory/
+# _logs
+# _ssh
+# _ssl
+# ansible.cfg

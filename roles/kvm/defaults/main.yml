@@ -1,0 +1,6 @@
+---
+  libvirt_folder: "/var/lib/libvirt/"
+  image_pool_dir: "/var/lib/libvirt/"
+  image_pool_name: "images2"
+  #change the uri to "qemu:///system" would execute the virt_pool module as a root even if the remote_user/become_user in ansible is set to a non root user.
+  libvirt_uri: "qemu:///session"
